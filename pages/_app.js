@@ -31,12 +31,12 @@ const theme = db.theme;
 export default function App({ Component, pageProps }) {
   return (
     <>
-      <Head>
+      {/*<Head>
         <meta name="og:title" property="og:title" content={db.title} key="title" />
         <meta name="og:description" property="og:description" content="Quiz de Yu-Gi-Oh!"/>
         <meta property="og:url" content="https://next-quiz.jeffersondenilson.vercel.app/" />  
-        <meta property="og:image" content={db.bg} />            
-      </Head>
+        <meta property="og:image" content={db.bg} />
+      </Head>*/}
       <ThemeProvider theme={theme}>
         <GlobalStyle />
         <Component {...pageProps} />

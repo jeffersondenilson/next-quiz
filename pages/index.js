@@ -26,10 +26,16 @@ export default function Home() {
         <Widget>
           <Widget.Header>
             <Head>
-              <meta name="og:title" property="og:title" content={db.title} key="title" />
+              {/*<meta name="og:title" property="og:title" content={db.title} key="title" />
               <meta name="og:description" property="og:description" content="Quiz de Yu-Gi-Oh!"/>
               <meta property="og:url" content="https://next-quiz.jeffersondenilson.vercel.app/" />  
-              <meta property="og:image" content={db.bg} />            
+              <meta property="og:image" content={db.bg} />*/}  
+
+              <meta property="og:title" content="Quiz de Yu-Gi-Oh!" key="title" />
+              <meta property="og:description" content="Quiz de Yu-Gi-Oh!" key="description" />
+              <meta property="og:type" content="website"/>
+              <meta property="og:url" content="https://next-quiz.jeffersondenilson.vercel.app/"/>
+              <meta property="og:image" content="https://i.pinimg.com/originals/0b/20/a8/0b20a88f016d7be23012cd29d27072f1.jpg"/>          
             </Head>
             <h1>{db.title}</h1>
           </Widget.Header>
