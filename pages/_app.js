@@ -33,8 +33,9 @@ export default function App({ Component, pageProps }) {
     <>
       <ThemeProvider theme={theme}>
         <Head>
-          <title>Quiz de Yu-Gi-Oh!</title>
-          <meta property="og:title" content="Quiz de Yu-Gi-Oh!" key="title" />
+          <title>{db.title}</title>
+          <meta property="og:title" content={db.title} key="title" />
+          <meta property="og:description" content={db.description} key="description" />
           <meta property="og:image" content={db.bg} />
         </Head>
         <GlobalStyle />
