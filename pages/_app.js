@@ -32,6 +32,7 @@ export default function App({ Component, pageProps }) {
   return (
     <>
       <ThemeProvider theme={theme}>
+        <GlobalStyle />
         <Head>
           <title>{db.title}</title>
           <meta property="og:title" content={db.title} key="title" />
@@ -41,7 +42,6 @@ export default function App({ Component, pageProps }) {
           <meta key="og:url" name="og:url" 
             content="https://next-quiz.jeffersondenilson.vercel.app/" />
         </Head>
-        <GlobalStyle />
         <Component {...pageProps} />
       </ThemeProvider>
     </>
