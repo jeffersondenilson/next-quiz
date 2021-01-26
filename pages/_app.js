@@ -32,6 +32,7 @@ export default function App({ Component, pageProps }) {
   return (
     <>
       <NextSeo
+        title={db.title}
         openGraph={{
           type: 'website',
           url: db.url,
