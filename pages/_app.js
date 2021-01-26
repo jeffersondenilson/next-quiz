@@ -1,6 +1,7 @@
 import { createGlobalStyle, ThemeProvider } from 'styled-components'
-import Head from 'next/head'
+// import Head from 'next/head'
 import db from '../db.json'
+import { NextSeo } from 'next-seo'
 
 const GlobalStyle = createGlobalStyle`
   * {
@@ -31,9 +32,26 @@ const theme = db.theme;
 export default function App({ Component, pageProps }) {
   return (
     <>
+      <NextSeo
+        openGraph={{
+          type: 'website',
+          url: db.url,
+          site_name: db.title,
+          title: db.title,
+          description: db.description,
+          images: [
+            {
+              url: db.bg,
+              width: 416,
+              height: 416,
+              alt: 'Magical Hats',
+            },
+          ],
+        }}
+      />
       <ThemeProvider theme={theme}>
         <GlobalStyle />
-        <Head>
+        {/*<Head>
           <title>{db.title}</title>
           <meta property="og:title" content={db.title} key="title" />
           <meta property="og:description" content={db.description} key="description" />
@@ -41,7 +59,7 @@ export default function App({ Component, pageProps }) {
           <meta key="og:type" name="og:type" content="website" />
           <meta key="og:url" name="og:url" 
             content="https://next-quiz.jeffersondenilson.vercel.app/" />
-        </Head>
+        </Head>*/}
         <Component {...pageProps} />
       </ThemeProvider>
     </>
