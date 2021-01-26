@@ -37,6 +37,9 @@ export default function App({ Component, pageProps }) {
           <meta property="og:title" content={db.title} key="title" />
           <meta property="og:description" content={db.description} key="description" />
           <meta property="og:image" content={db.bg} />
+          <meta key="og:type" name="og:type" content="website" />
+          <meta key="og:url" name="og:url" 
+            content="https://next-quiz.jeffersondenilson.vercel.app/" />
         </Head>
         <GlobalStyle />
         <Component {...pageProps} />
