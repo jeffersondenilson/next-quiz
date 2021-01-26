@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import db from '../db.json';
 import Widget from '../src/components/Widget';
@@ -27,7 +27,17 @@ export const Button = styled.button`
   background-color: ${({ theme }) => theme.colors.primary}
 `;
 
+export const Form = styled.form`
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+`;
+
 export default function Home() {
+  const [name, setName] = useState('');
+  // eslint-disable-next-line no-console
+  const submit = () => console.log('form submited');
+
   return (
     <QuizBackground backgroundImage={db.bg}>
       <QuizContainer>
@@ -38,8 +48,18 @@ export default function Home() {
           </Widget.Header>
           <Widget.Content>
             <p>{db.description}</p>
-            <Input placeholder="Seu nome aqui..." />
-            <Button>JOGAR</Button>
+            <form onSubmit={submit}>
+              <Input
+                onChange={(e) => setName(e.target.value)}
+                value={name}
+                placeholder="Seu nome aqui..."
+              />
+              <Button type="submit">
+                JOGAR
+                {' '}
+                {name}
+              </Button>
+            </form>
           </Widget.Content>
         </Widget>
 
