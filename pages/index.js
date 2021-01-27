@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import styled from 'styled-components';
 import { useRouter } from 'next/router';
 import db from '../db.json';
 import Widget from '../src/components/Widget';
@@ -8,54 +7,9 @@ import QuizBackground from '../src/components/QuizBackground';
 import QuizContainer from '../src/components/QuizContainer';
 import Footer from '../src/components/Footer';
 import GitHubCorner from '../src/components/GitHubCorner';
-
-// export const QuizContainer = styled.div`
-//   width: 100%;
-//   max-width: 350px;
-//   padding-top: 45px;
-//   margin: auto 10%;
-//   @media screen and (max-width: 500px) {
-//     margin: auto;
-//     padding: 15px;
-//   }
-// `;
-
-export const Input = styled.input`
-  border: 2px solid ${({ theme }) => theme.colors.primary};
-  background-color: ${({ theme }) => theme.colors.mainBg};
-  color: ${({ theme }) => theme.colors.contrastText};
-  margin-bottom: 15px;
-  padding: 10px;
-  border-radius: ${({ theme }) => theme.borderRadius};
-  outline: 0;
-  font-size: 1.1em;
-`;
-
-export const Button = styled.button`
-  background-color: ${({ theme, disabled }) => (disabled ? 'gray' : theme.colors.secondary)};
-  border: none;
-  border-radius: ${({ theme }) => theme.borderRadius};
-  color: ${({ theme }) => theme.colors.contrastText};
-  padding: 10px 32px;
-  text-align: center;
-  text-decoration: none;
-  font-size: 1em;
-  font-weight: bold;
-  cursor: ${({ disabled }) => (disabled ? 'arrow' : 'pointer')};
-  outline: none;
-  box-shadow: ${({ disabled }) => (disabled ? '0 0' : '4px 4px 0 1px #ba124a')};
-  &:active {
-    background-color: #e8175d;
-    box-shadow: 2px 2px 0 1px #8b0e38;
-    transform: translateY(4px);
-  }
-`;
-
-export const Form = styled.form`
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-`;
+import Form from '../src/components/Form';
+import Input from '../src/components/Input';
+import Button from '../src/components/Button';
 
 export default function Home() {
   const router = useRouter();
