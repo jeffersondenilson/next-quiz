@@ -32,9 +32,10 @@ export default function Home() {
             <p>{db.description}</p>
             <Form onSubmit={submit}>
               <Input
+                name="nomeDoUsuario"
                 onChange={(e) => setName(e.target.value)}
                 value={name}
-                placeholder="Seu nome aqui..."
+                placeholder="Seu nome para jogar"
               />
               <Button type="submit" disabled={name.trim().length === 0}>
                 JOGAR
