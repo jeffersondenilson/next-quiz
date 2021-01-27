@@ -1,23 +1,24 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
+import { useRouter } from 'next/router';
 import db from '../db.json';
 import Widget from '../src/components/Widget';
 import QuizLogo from '../src/components/QuizLogo';
 import QuizBackground from '../src/components/QuizBackground';
+import QuizContainer from '../src/components/QuizContainer';
 import Footer from '../src/components/Footer';
 import GitHubCorner from '../src/components/GitHubCorner';
-import { useRouter } from 'next/router';
 
-export const QuizContainer = styled.div`
-  width: 100%;
-  max-width: 350px;
-  padding-top: 45px;
-  margin: auto 10%;
-  @media screen and (max-width: 500px) {
-    margin: auto;
-    padding: 15px;
-  }
-`;
+// export const QuizContainer = styled.div`
+//   width: 100%;
+//   max-width: 350px;
+//   padding-top: 45px;
+//   margin: auto 10%;
+//   @media screen and (max-width: 500px) {
+//     margin: auto;
+//     padding: 15px;
+//   }
+// `;
 
 export const Input = styled.input`
   border: 2px solid ${({ theme }) => theme.colors.primary};
@@ -31,7 +32,7 @@ export const Input = styled.input`
 `;
 
 export const Button = styled.button`
-  background-color: ${({ theme, disabled }) => disabled ? 'gray' : theme.colors.secondary};
+  background-color: ${({ theme, disabled }) => (disabled ? 'gray' : theme.colors.secondary)};
   border: none;
   border-radius: ${({ theme }) => theme.borderRadius};
   color: ${({ theme }) => theme.colors.contrastText};
@@ -40,9 +41,9 @@ export const Button = styled.button`
   text-decoration: none;
   font-size: 1em;
   font-weight: bold;
-  cursor: ${({ disabled }) => disabled ? 'arrow' : 'pointer'};
+  cursor: ${({ disabled }) => (disabled ? 'arrow' : 'pointer')};
   outline: none;
-  box-shadow: ${({ disabled }) => disabled ? '0 0' : '4px 4px 0 1px #ba124a'};
+  box-shadow: ${({ disabled }) => (disabled ? '0 0' : '4px 4px 0 1px #ba124a')};
   &:active {
     background-color: #e8175d;
     box-shadow: 2px 2px 0 1px #8b0e38;
@@ -62,7 +63,7 @@ export default function Home() {
 
   const submit = (e) => {
     e.preventDefault();
-    router.push(`/quiz?name=${name}`)
+    router.push(`/quiz?name=${name}`);
   };
 
   return (
