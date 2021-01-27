@@ -1,9 +1,9 @@
 import React from 'react';
+import QuizBackground from '../src/components/QuizBackground';
+import GitHubCorner from '../src/components/GitHubCorner';
 
-function QuizPage() {
+export default function QuizPage() {
   return (
-    <div>Página de quiz</div>
+    <div>quiz</div>
   );
 }
-
-export default QuizPage;
