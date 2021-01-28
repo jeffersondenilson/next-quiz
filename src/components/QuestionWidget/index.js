@@ -9,9 +9,6 @@ function QuestionWidget({
   question,
   questionIndex,
   totalQuestions,
-  // selectedAnswer,
-  // changeAnswer,
-  submitAnswer,
   getNextQuestion
 }){
   const questionId = `question__${questionIndex}`;
@@ -22,8 +19,6 @@ function QuestionWidget({
 
   const checkAnswer = (e) => {
     e.preventDefault();
-    // submitAnswer(selectedAnswer);
-    // setSelectedAnswer(null);
     if(isAnswered){
       // próxima pergunta
       getNextQuestion(isCorrect);
@@ -73,8 +68,6 @@ function QuestionWidget({
                 as="label"
                 htmlFor={alternativeId}
                 key={alternativeId}
-                // checked={checked}
-                // feedbackColor={isAnswered && checked && { isCorrect } }
                 data-checked={checked}
                 data-status={isAnswered && answerStatus}
               >
@@ -83,26 +76,24 @@ function QuestionWidget({
                   id={alternativeId}
                   name={questionId}
                   type="radio"
-                  // checked={checked}
-                  onChange={()=>setSelectedAnswer(alternativeIndex)}
+                  // se já foi respondida, "travar para edição"
+                  onChange={() => !isAnswered && setSelectedAnswer(alternativeIndex)}
                 />
                 {alternative}
               </Widget.Topic>
             );
           })}
 
+          {isAnswered && isCorrect 
+            && <FeedbackMark isCorrect={isCorrect}>&#10004;</FeedbackMark>}
+          {isAnswered && !isCorrect 
+            && <FeedbackMark isCorrect={isCorrect}>&#10006;</FeedbackMark>}
+
           <Button 
             disabled={selectedAnswer === null}
             type="submit"
-            // style={{ marginTop: '10px' }}
           >
-            {/*feedback aqui*/}
-            {isAnswered && isCorrect 
-              && <FeedbackMark isCorrect={isCorrect}>&#10004;</FeedbackMark>}
-            {isAnswered && !isCorrect 
-              && <FeedbackMark isCorrect={isCorrect}>&#10006;</FeedbackMark>}
             {isAnswered ? 'PRÓXIMA' : 'CONFIRMAR'}
-            {/*'CONFIRMAR'*/}
           </Button>
         </AlternativesForm>
       </Widget.Content>
@@ -115,9 +106,6 @@ QuestionWidget.propTypes = {
   question: PropTypes.object.isRequired,
   questionIndex: PropTypes.number.isRequired,
   totalQuestions: PropTypes.number.isRequired,
-  // selectedAnswer: PropTypes.number,
-  // changeAnswer: PropTypes.func.isRequired,
-  submitAnswer: PropTypes.func.isRequired,
   getNextQuestion: PropTypes.func.isRequired,
 }
 

@@ -58,8 +58,8 @@ Widget.Topic = styled.a`
   border-radius: ${({ theme }) => theme.borderRadius};
   transition: .3s;
   display: block;
-  &:hover,
-  &:focus {
+  &:not([data-checked="true"]):hover,
+  &:not([data-checked="true"]):focus {
     opacity: .5;
     // opacity: ${({ checked }) => !checked && '.5'};
   }

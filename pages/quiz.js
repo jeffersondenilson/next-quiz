@@ -28,20 +28,9 @@ export default function QuizPage() {
   const [correctAnswers, setCorrectAnswers] = useState(0);
   const question = db.questions[questionIndex];
 
-  const submitAnswer = (selectedAnswer) => {
-    const nextQuestion = questionIndex + 1;
-    if(nextQuestion < db.questions.length){
-      // próxima pergunta
-      setQuestionIndex(nextQuestion);
-    }else{
-      // todas as perguntas foram respondidas, fim do quiz
-      setScreenState(screenStates.RESULT);
-    }
-  }
-
   const getNextQuestion = (isCorrectAnswer) => {
     if(isCorrectAnswer){
-      setCorrectAnswers(correctAnswers++);
+      setCorrectAnswers(correctAnswers+1);
     }
 
     const nextQuestion = questionIndex + 1;
@@ -71,9 +60,6 @@ export default function QuizPage() {
             question={question}
             questionIndex={questionIndex}
             totalQuestions={db.questions.length}
-            // selectedAnswer={selectedAnswer}
-            // changeAnswer={setSelectedAnswer}
-            submitAnswer={submitAnswer}
             getNextQuestion={getNextQuestion}
           />
         }
@@ -84,8 +70,7 @@ export default function QuizPage() {
           screenState === screenStates.RESULT 
           && 
           <h3>
-            {/*`Você acertou ${correctAnswers} de ${db.questions.length}`*/}
-            {'Fim do quiz'}
+            {`Você acertou ${correctAnswers} de ${db.questions.length}`}
           </h3>
         }
         <Footer />

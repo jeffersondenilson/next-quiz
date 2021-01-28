@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 const AlternativesForm = styled.form`
   label {
-    &[data-selected="true"] {
+    &[data-checked="true"] {
       background-color: ${({ theme }) => theme.colors.primary};
       
       &[data-status="SUCCESS"] {
@@ -17,7 +17,8 @@ const AlternativesForm = styled.form`
     } 
   }
   button {
-    margin-top: 24px;
+    margin-top: 10px;
+    width: 100%;
   }
 `;
 
