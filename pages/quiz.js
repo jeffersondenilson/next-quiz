@@ -20,8 +20,6 @@ const screenStates = {
 };
 
 export default function QuizPage() {
-  
-
   const router = useRouter();
   const { name } = router.query;
 
@@ -29,9 +27,32 @@ export default function QuizPage() {
   const [questionIndex, setQuestionIndex] = useState(0);
   // const [selectedAnswer, setSelectedAnswer] = useState(null);
   const question = db.questions[questionIndex];
+  const correctAnswers = 0;
 
-  const submitAnswer = () => {
-    // logica
+  const submitAnswer = (selectedAnswer) => {
+    const nextQuestion = questionIndex + 1;
+    if(nextQuestion < db.questions.length){
+      // próxima pergunta
+      setQuestionIndex(nextQuestion);
+    }else{
+      // todas as perguntas foram respondidas, fim do quiz
+      setScreenState(screenStates.RESULT);
+    }
+  }
+
+  const getNextQuestion = (isCorrectAnswer) => {
+    if(isCorrectAnswer){
+      correctAnswers++;
+    }
+
+    const nextQuestion = questionIndex + 1;
+    if(nextQuestion < db.questions.length){
+      // próxima pergunta
+      setQuestionIndex(nextQuestion);
+    }else{
+      // todas as perguntas foram respondidas, fim do quiz
+      setScreenState(screenStates.RESULT);
+    }
   }
 
   useEffect(() => {
@@ -54,10 +75,20 @@ export default function QuizPage() {
             // selectedAnswer={selectedAnswer}
             // changeAnswer={setSelectedAnswer}
             submitAnswer={submitAnswer}
+            getNextQuestion={getNextQuestion}
           />
         }
 
         {screenState === screenStates.LOADING && <LoadingWidget />}
+
+        {
+          screenState === screenStates.RESULT 
+          && 
+          <h3>
+            {/*`Você acertou ${correctAnswers} de ${db.questions.length}`*/}
+            {'Fim do quiz'}
+          </h3>
+        }
         <Footer />
       </QuizContainer>
       <GitHubCorner projectUrl="https://github.com/jeffersondenilson/next-quiz" />

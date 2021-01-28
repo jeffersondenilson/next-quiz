@@ -60,7 +60,6 @@ Widget.Topic = styled.a`
   border-radius: ${({ theme }) => theme.borderRadius};
   transition: .3s;
   display: block;
-  // opacity: ${({ checked }) => (checked ? '.5' : '1')};
   &:hover,
   &:focus {
     // opacity: .5;

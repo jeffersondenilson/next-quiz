@@ -11,10 +11,28 @@ function QuestionWidget({
   totalQuestions,
   // selectedAnswer,
   // changeAnswer,
-  submitAnswer
+  submitAnswer,
+  getNextQuestion
 }){
   const questionId = `question__${questionIndex}`;
   const [selectedAnswer, setSelectedAnswer] = useState(null);
+  const [isAnswered, setIsAnswered] = useState(false);
+  const [isCorrect, setIsCorrect] = useState();
+
+  const checkAnswer = (e) => {
+    e.preventDefault();
+    submitAnswer(selectedAnswer);
+    setSelectedAnswer(null);
+    // if(isAnswered){
+    //   // próxima pergunta
+    //   // resets
+    //   getNextQuestion(isCorrect);
+    // }else{
+    //   // confirmar resposta
+    //   setIsCorrect(selectedAnswer === question.answer);
+    //   setIsAnswered(true);
+    // }
+  }
 
   return (
     <Widget>
@@ -40,20 +58,18 @@ function QuestionWidget({
         <h2>{question.title}</h2>
         <p>{question.description || ''}</p>
 
-        <Form 
-          onSubmit={(e) => {
-            e.preventDefault();
-            submitAnswer();
-          }}
-        >
+        <Form onSubmit={checkAnswer}>
           {question.alternatives.map((alternative, alternativeIndex)=>{
             const alternativeId = `alternative__${alternativeIndex}`;
+            const checked = selectedAnswer === alternativeIndex;
+
             return (
               <Widget.Topic
                 as="label"
                 htmlFor={alternativeId}
                 key={alternativeId}
-                checked={selectedAnswer === alternativeIndex}
+                checked={checked}
+                // isCorrect={isAnswered && checked ? isCorrect : }
               >
                 <input 
                   style={{ display: 'none' }}
@@ -74,7 +90,8 @@ function QuestionWidget({
             type="submit"
             style={{ marginTop: '10px' }}
           >
-            CONFIRMAR
+            {/*isAnswered ? 'PRÓXIMA' : 'CONFIRMAR'*/}
+            {'CONFIRMAR'}
           </Button>
         </Form>
       </Widget.Content>
@@ -90,6 +107,7 @@ QuestionWidget.propTypes = {
   // selectedAnswer: PropTypes.number,
   // changeAnswer: PropTypes.func.isRequired,
   submitAnswer: PropTypes.func.isRequired,
+  getNextQuestion: PropTypes.func.isRequired,
 }
 
 export default QuestionWidget;
