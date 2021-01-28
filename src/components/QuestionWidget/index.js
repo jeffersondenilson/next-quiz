@@ -63,7 +63,7 @@ function QuestionWidget({
         <h2>{question.title}</h2>
         <p>{question.description || ''}</p>
 
-        <Form onSubmit={checkAnswer}>
+        <AlternativesForm onSubmit={checkAnswer}>
           {question.alternatives.map((alternative, alternativeIndex)=>{
             const alternativeId = `alternative__${alternativeIndex}`;
             const checked = selectedAnswer === alternativeIndex;
@@ -104,7 +104,7 @@ function QuestionWidget({
             {isAnswered ? 'PRÓXIMA' : 'CONFIRMAR'}
             {/*'CONFIRMAR'*/}
           </Button>
-        </Form>
+        </AlternativesForm>
       </Widget.Content>
     </Widget>
   );
