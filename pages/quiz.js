@@ -27,6 +27,7 @@ export default function QuizPage() {
 
   const [screenState, setScreenState] = useState(screenStates.LOADING);
   const [questionIndex, setQuestionIndex] = useState(0);
+  const [selectedAnswer, setSelectedAnswer] = useState(null);
   const question = db.questions[questionIndex];
 
   const submitAnswer = () => {
@@ -49,7 +50,8 @@ export default function QuizPage() {
             question={question}
             questionIndex={questionIndex}
             totalQuestions={db.questions.length}
-            onSubmit={submitAnswer}
+            changeAnswer={setSelectedAnswer}
+            submitAnswer={submitAnswer}
           />
         }
 
