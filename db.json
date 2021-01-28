@@ -1,29 +1,67 @@
 {
   "bg": "https://i.pinimg.com/originals/0b/20/a8/0b20a88f016d7be23012cd29d27072f1.jpg",
   "title": "Quiz de Yu-Gi-Oh!",
-  "description": "Teste seus conhecimentos em Yu-Gi-Oh!",
+  "description": "Teste seus conhecimentos em cartas de YuGiOh!",
   "url": "https://next-quiz.jeffersondenilson.vercel.app/",
   "questions": [
     {
-      "image": "https://media.giphy.com/media/xUOxf3yDKCuwpOlT3i/giphy.gif",
-      "title": "Como fazer um seletor por id via CSS?",
-      "description": "Essa é pra aquecer",
+      "image": "https://uploads3.yugioh.com/card_images/589/detail/Yuugou.jpg?1380218980",
+      "title": "Qual o resultado da fusão de Mago do Tempo + Dragão Filhote?",
+      "description": "Selecione um alternativa",
       "answer": 2,
       "alternatives": [
-        ".elemento",
-        "*elemento",
-        "#elemento",
-        "%elemento"
+         "Dragão do Fogo Negro",
+         "Dragão Imperador",
+         "Dragão Milenar",
+         "Dragão Negro de Olhos Vermelhos"
       ]
     },
     {
-      "image": "https://media.giphy.com/media/13FrpeVH09Zrb2/giphy.gif",
-      "title": "Como fazer um background gradiente com css?",
-      "description": "Faz tempo em haha",
+      "image": "https://static.wikia.nocookie.net/yugioh/images/9/93/AttributeMastery-GX06-JP-VG.jpg/revision/latest?cb=20110330144855",
+      "title": "Qual desses monstros tem o atributo LUZ?",
+      "description": "Selecione um alternativa",
+      "answer": 3,
+      "alternatives": [
+        "Dragão de Estimação da Harpia",
+        "Espadachim das Chamas",
+        "Tartaruga Caranguejo",
+        "Elfa Mística"
+      ]
+    },
+    {
+      "image": "https://static.wikia.nocookie.net/yugioh/images/c/c3/LaserCannonArmor-LOB-EN-SP-UE.jpg/revision/latest/smart/width/200/height/200?cb=20121004020907",
+      "title": "Qual desses monstros pode ser equipado com Armadura Canhão Laser?",
+      "description": "Selecione um alternativa",
       "answer": 0,
       "alternatives": [
-         "background: linear-gradient(#e66465, #9198e5);",
-         "background: gradient(#e66465, #9198e5);"
+         "Leghul",
+         "Maha Vailo",
+         "Sangan",
+         "Kuriboh"
+      ]
+    },
+    {
+      "image": "https://static.wikia.nocookie.net/yugioh/images/f/fa/Relinquished-TF04-JP-VG.png/revision/latest/top-crop/width/360/height/450?cb=20170129011126",
+      "title": "Qual carta é usada para invocar o Renunciado?",
+      "description": "Selecione um alternativa",
+      "answer": 3,
+      "alternatives": [
+         "Ressurreição de Chakra",
+         "Yami",
+         "Ritual de Magia Negra",
+         "Ritual de Ilusão Negra"
+      ]
+    },
+    {
+      "image": "https://static.wikia.nocookie.net/yugioh/images/7/7c/Umi-TF04-JP-VG.jpg/revision/latest?cb=20120622231658",
+      "title": "Qual desses monstros tem seu ATK e DEF aumentado com o efeito de Umi?",
+      "description": "Selecione um alternativa",
+      "answer": 1,
+      "alternatives": [
+         "Tanque do Labirinto",
+         "Baleia Fortaleza",
+         "Lady Harpia",
+         "Dragão Zumbi"
       ]
     }
   ],
