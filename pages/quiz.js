@@ -27,7 +27,7 @@ export default function QuizPage() {
 
   const [screenState, setScreenState] = useState(screenStates.LOADING);
   const [questionIndex, setQuestionIndex] = useState(0);
-  const [selectedAnswer, setSelectedAnswer] = useState(null);
+  // const [selectedAnswer, setSelectedAnswer] = useState(null);
   const question = db.questions[questionIndex];
 
   const submitAnswer = () => {
@@ -36,7 +36,8 @@ export default function QuizPage() {
 
   useEffect(() => {
     // fetch aqui
-    setTimeout(() => setScreenState(screenStates.QUIZ), 1000);
+    // setTimeout(() => setScreenState(screenStates.QUIZ), 1000);
+    setScreenState(screenStates.QUIZ);
   }, []);
 
   return (
@@ -50,7 +51,8 @@ export default function QuizPage() {
             question={question}
             questionIndex={questionIndex}
             totalQuestions={db.questions.length}
-            changeAnswer={setSelectedAnswer}
+            // selectedAnswer={selectedAnswer}
+            // changeAnswer={setSelectedAnswer}
             submitAnswer={submitAnswer}
           />
         }

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import Widget from '../Widget';
 import Form from '../Form';
@@ -9,11 +9,12 @@ function QuestionWidget({
   question,
   questionIndex,
   totalQuestions,
-  selectedAnswer,
-  changeAnswer,
+  // selectedAnswer,
+  // changeAnswer,
   submitAnswer
 }){
   const questionId = `question__${questionIndex}`;
+  const [selectedAnswer, setSelectedAnswer] = useState(null);
 
   return (
     <Widget>
@@ -52,20 +53,27 @@ function QuestionWidget({
                 as="label"
                 htmlFor={alternativeId}
                 key={alternativeId}
+                checked={selectedAnswer === alternativeIndex}
               >
                 <input 
+                  style={{ display: 'none' }}
                   id={alternativeId}
                   name={questionId}
                   type="radio"
                   checked={selectedAnswer === alternativeIndex}
-                  onChange={()=>changeAnswer(alternativeIndex)}
+                  onChange={()=>setSelectedAnswer(alternativeIndex)}
+                  // onChange={()=>changeAnswer(alternativeIndex)}
                 />
                 {alternative}
               </Widget.Topic>
             );
           })}
 
-          <Button type="submit" style={{ marginTop: '10px' }}>
+          <Button 
+            disabled={selectedAnswer === null}
+            type="submit"
+            style={{ marginTop: '10px' }}
+          >
             CONFIRMAR
           </Button>
         </Form>
@@ -79,8 +87,8 @@ QuestionWidget.propTypes = {
   question: PropTypes.object.isRequired,
   questionIndex: PropTypes.number.isRequired,
   totalQuestions: PropTypes.number.isRequired,
-  selectedAnswer: PropTypes.number,
-  changeAnswer: PropTypes.func.isRequired,
+  // selectedAnswer: PropTypes.number,
+  // changeAnswer: PropTypes.func.isRequired,
   submitAnswer: PropTypes.func.isRequired,
 }
 

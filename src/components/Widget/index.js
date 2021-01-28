@@ -51,17 +51,20 @@ Widget.Topic = styled.a`
   outline: 0;
   text-decoration: none;
   color: ${({ theme }) => theme.colors.contrastText};
-  background-color: ${({ theme }) => `${theme.colors.primary}40`};
+  // background-color: ${({ theme }) => `${theme.colors.primary}40`};
+  background-color: ${({ theme, checked }) => 
+    (checked ? `${theme.colors.primary}` : `${theme.colors.primary}40`)};
   padding: 10px 15px;
   margin-bottom: 8px;
   cursor: pointer;
   border-radius: ${({ theme }) => theme.borderRadius};
   transition: .3s;
   display: block;
-  
+  // opacity: ${({ checked }) => (checked ? '.5' : '1')};
   &:hover,
   &:focus {
-    opacity: .5;
+    // opacity: .5;
+    opacity: ${({ checked }) => !checked && '.5'};
   }
 `;
 
