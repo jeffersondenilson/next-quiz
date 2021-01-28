@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import Widget from '../Widget';
-import Form from '../Form';
-import Input from '../Input';
+import AlternativesForm from '../AlternativesForm';
 import Button from '../Button';
+import FeedbackMark from '../FeedbackMark';
 
 function QuestionWidget({ 
   question,
@@ -17,22 +17,27 @@ function QuestionWidget({
   const questionId = `question__${questionIndex}`;
   const [selectedAnswer, setSelectedAnswer] = useState(null);
   const [isAnswered, setIsAnswered] = useState(false);
-  const [isCorrect, setIsCorrect] = useState();
+  const isCorrect = selectedAnswer === question.answer;
+  const answerStatus = isCorrect ? 'SUCCESS' : 'ERROR';
 
   const checkAnswer = (e) => {
     e.preventDefault();
-    submitAnswer(selectedAnswer);
-    setSelectedAnswer(null);
-    // if(isAnswered){
-    //   // próxima pergunta
-    //   // resets
-    //   getNextQuestion(isCorrect);
-    // }else{
-    //   // confirmar resposta
-    //   setIsCorrect(selectedAnswer === question.answer);
-    //   setIsAnswered(true);
-    // }
+    // submitAnswer(selectedAnswer);
+    // setSelectedAnswer(null);
+    if(isAnswered){
+      // próxima pergunta
+      getNextQuestion(isCorrect);
+    }else{
+      // confirmar resposta
+      setIsAnswered(true);
+    }
   }
+
+  // resets
+  useEffect(() => {
+    setIsAnswered(false);
+    setSelectedAnswer(null);
+  }, [questionIndex]);
 
   return (
     <Widget>
@@ -68,17 +73,18 @@ function QuestionWidget({
                 as="label"
                 htmlFor={alternativeId}
                 key={alternativeId}
-                checked={checked}
-                // isCorrect={isAnswered && checked ? isCorrect : }
+                // checked={checked}
+                // feedbackColor={isAnswered && checked && { isCorrect } }
+                data-checked={checked}
+                data-status={isAnswered && answerStatus}
               >
                 <input 
                   style={{ display: 'none' }}
                   id={alternativeId}
                   name={questionId}
                   type="radio"
-                  checked={selectedAnswer === alternativeIndex}
+                  // checked={checked}
                   onChange={()=>setSelectedAnswer(alternativeIndex)}
-                  // onChange={()=>changeAnswer(alternativeIndex)}
                 />
                 {alternative}
               </Widget.Topic>
@@ -88,10 +94,15 @@ function QuestionWidget({
           <Button 
             disabled={selectedAnswer === null}
             type="submit"
-            style={{ marginTop: '10px' }}
+            // style={{ marginTop: '10px' }}
           >
-            {/*isAnswered ? 'PRÓXIMA' : 'CONFIRMAR'*/}
-            {'CONFIRMAR'}
+            {/*feedback aqui*/}
+            {isAnswered && isCorrect 
+              && <FeedbackMark isCorrect={isCorrect}>&#10004;</FeedbackMark>}
+            {isAnswered && !isCorrect 
+              && <FeedbackMark isCorrect={isCorrect}>&#10006;</FeedbackMark>}
+            {isAnswered ? 'PRÓXIMA' : 'CONFIRMAR'}
+            {/*'CONFIRMAR'*/}
           </Button>
         </Form>
       </Widget.Content>

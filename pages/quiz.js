@@ -25,9 +25,8 @@ export default function QuizPage() {
 
   const [screenState, setScreenState] = useState(screenStates.LOADING);
   const [questionIndex, setQuestionIndex] = useState(0);
-  // const [selectedAnswer, setSelectedAnswer] = useState(null);
+  const [correctAnswers, setCorrectAnswers] = useState(0);
   const question = db.questions[questionIndex];
-  const correctAnswers = 0;
 
   const submitAnswer = (selectedAnswer) => {
     const nextQuestion = questionIndex + 1;
@@ -42,7 +41,7 @@ export default function QuizPage() {
 
   const getNextQuestion = (isCorrectAnswer) => {
     if(isCorrectAnswer){
-      correctAnswers++;
+      setCorrectAnswers(correctAnswers++);
     }
 
     const nextQuestion = questionIndex + 1;
