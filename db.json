@@ -1,5 +1,6 @@
 {
   "bg": "https://i.pinimg.com/originals/0b/20/a8/0b20a88f016d7be23012cd29d27072f1.jpg",
+  "_bg": "https://res.cloudinary.com/jerrick/image/upload/c_scale,q_auto/en1zylcj5y4lsngdcbe8.jpg",
   "title": "Quiz de Yu-Gi-Oh!",
   "description": "Teste seus conhecimentos em cartas de YuGiOh!",
   "url": "https://next-quiz.jeffersondenilson.vercel.app/",
@@ -74,8 +75,7 @@
       "secondary": "#E91E63",
       "mainBg": "#420A6C",
       "contrastText": "#FFFFFF",
-      "_wrong": "#FF5722",
-      "wrong": "#ff0000",
+      "wrong": "#FF0000",
       "success": "#4CAF50"
     },
     "borderRadius": "4px"

@@ -1,7 +1,12 @@
+import styled from 'styled-components';
 import Widget from '../Widget';
 import FeedbackMark from '../FeedbackMark';
 
-export default function ResultWidget({ answers }){
+export const TextSpan = styled.span`
+  font-weight: bold;
+`
+
+export default function ResultWidget({ name, answers }){
   return (
     <Widget>
       <Widget.Header>
@@ -9,20 +14,19 @@ export default function ResultWidget({ answers }){
       </Widget.Header>
       <Widget.Content>
         <h3>
-          {`Você acertou ${answers.filter((a) => a).length} de ${answers.length}`}
+          {`${name}, você acertou ${answers.filter((a) => a).length} de ${answers.length}`}
         </h3>
 
         <p>Suas respostas:</p>
 
         { answers.map((answer, index)=>{
           return (
-            <FeedbackMark as="span" isCorrect={answer}>
-              {answer ? <span>&#10004;</span> : <span>&#10006;</span>}
+            <FeedbackMark key={`answer__${index}`} isCorrect={answer}>
+              <TextSpan>#{index + 1}</TextSpan> {answer ? '\u2714' : '\u2716'}
             </FeedbackMark>
           );
         })}
       </Widget.Content>
-      {/*<span style={{ fontWeight: 'bold', fontSize: '1.1em', textAlign: 'center', verticalAlign: 'center' }}>{`#${index+1}`}</span>*/}
     </Widget>
   );
 }

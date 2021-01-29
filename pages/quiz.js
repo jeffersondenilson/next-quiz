@@ -46,7 +46,6 @@ export default function QuizPage() {
 
   useEffect(() => {
     // fetch aqui
-    // setTimeout(() => setScreenState(screenStates.QUIZ), 1000);
     setScreenState(screenStates.QUIZ);
     // setScreenState(screenStates.RESULT);
   }, []);
@@ -71,7 +70,7 @@ export default function QuizPage() {
         {
           screenState === screenStates.RESULT 
           && 
-          <ResultWidget answers={answers}/>
+          <ResultWidget name={name} answers={answers} />
         }
         <Footer />
       </QuizContainer>
