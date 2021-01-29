@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import Widget from '../Widget';
 import FeedbackMark from '../FeedbackMark';
+import BackLinkArrow from '../BackLinkArrow';
 
 export const TextSpan = styled.span`
   font-weight: bold;
@@ -12,6 +13,7 @@ function ResultWidget({ name, answers }) {
   return (
     <Widget>
       <Widget.Header>
+        <BackLinkArrow href="/" />
         <h2>Resultado</h2>
       </Widget.Header>
       <Widget.Content>

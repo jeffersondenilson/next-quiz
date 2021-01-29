@@ -4,6 +4,7 @@ import Widget from '../Widget';
 import AlternativesForm from '../AlternativesForm';
 import Button from '../Button';
 import FeedbackMark from '../FeedbackMark';
+import BackLinkArrow from '../BackLinkArrow';
 
 function QuestionWidget({
   question,
@@ -37,6 +38,7 @@ function QuestionWidget({
   return (
     <Widget>
       <Widget.Header>
+        <BackLinkArrow href="/" />
         <h3>{`Pergunta ${questionIndex + 1} de ${totalQuestions}`}</h3>
       </Widget.Header>
 
