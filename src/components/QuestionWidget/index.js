@@ -76,6 +76,7 @@ function QuestionWidget({
                   id={alternativeId}
                   name={questionId}
                   type="radio"
+                  checked={checked}
                   // se já foi respondida, "travar para edição"
                   onChange={() => !isAnswered && setSelectedAnswer(alternativeIndex)}
                 />
