@@ -5,12 +5,12 @@ import AlternativesForm from '../AlternativesForm';
 import Button from '../Button';
 import FeedbackMark from '../FeedbackMark';
 
-function QuestionWidget({ 
+function QuestionWidget({
   question,
   questionIndex,
   totalQuestions,
-  getNextQuestion
-}){
+  getNextQuestion,
+}) {
   const questionId = `question__${questionIndex}`;
   const [selectedAnswer, setSelectedAnswer] = useState(null);
   const [isAnswered, setIsAnswered] = useState(false);
@@ -19,14 +19,14 @@ function QuestionWidget({
 
   const checkAnswer = (e) => {
     e.preventDefault();
-    if(isAnswered){
+    if (isAnswered) {
       // próxima pergunta
       getNextQuestion(isCorrect);
-    }else{
+    } else {
       // confirmar resposta
       setIsAnswered(true);
     }
-  }
+  };
 
   // resets
   useEffect(() => {
@@ -41,8 +41,8 @@ function QuestionWidget({
       </Widget.Header>
 
       {
-        question.image 
-        && 
+        question.image
+        && (
         <img
           alt="imagemDaQuestão"
           style={{
@@ -52,6 +52,7 @@ function QuestionWidget({
           }}
           src={question.image}
         />
+        )
       }
 
       <Widget.Content>
@@ -59,7 +60,7 @@ function QuestionWidget({
         <p>{question.description || ''}</p>
 
         <AlternativesForm onSubmit={checkAnswer}>
-          {question.alternatives.map((alternative, alternativeIndex)=>{
+          {question.alternatives.map((alternative, alternativeIndex) => {
             const alternativeId = `alternative__${alternativeIndex}`;
             const checked = selectedAnswer === alternativeIndex;
 
@@ -71,7 +72,7 @@ function QuestionWidget({
                 data-checked={checked}
                 data-status={isAnswered && answerStatus}
               >
-                <input 
+                <input
                   style={{ display: 'none' }}
                   id={alternativeId}
                   name={questionId}
@@ -85,12 +86,12 @@ function QuestionWidget({
             );
           })}
 
-          {isAnswered && isCorrect 
+          {isAnswered && isCorrect
             && <FeedbackMark isCorrect={isCorrect}>&#10004;</FeedbackMark>}
-          {isAnswered && !isCorrect 
+          {isAnswered && !isCorrect
             && <FeedbackMark isCorrect={isCorrect}>&#10006;</FeedbackMark>}
 
-          <Button 
+          <Button
             disabled={selectedAnswer === null}
             type="submit"
           >
@@ -102,12 +103,17 @@ function QuestionWidget({
   );
 }
 
-
 QuestionWidget.propTypes = {
-  question: PropTypes.object.isRequired,
+  question: PropTypes.shape({
+    image: PropTypes.string.isRequired,
+    title: PropTypes.string.isRequired,
+    description: PropTypes.string.isRequired,
+    answer: PropTypes.number.isRequired,
+    alternatives: PropTypes.arrayOf(PropTypes.string).isRequired,
+  }).isRequired,
   questionIndex: PropTypes.number.isRequired,
   totalQuestions: PropTypes.number.isRequired,
   getNextQuestion: PropTypes.func.isRequired,
-}
+};
 
 export default QuestionWidget;

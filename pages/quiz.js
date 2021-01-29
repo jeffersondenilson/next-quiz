@@ -6,9 +6,6 @@ import QuizContainer from '../src/components/QuizContainer';
 import QuizLogo from '../src/components/QuizLogo';
 import Footer from '../src/components/Footer';
 import GitHubCorner from '../src/components/GitHubCorner';
-import Form from '../src/components/Form';
-import Input from '../src/components/Input';
-import Button from '../src/components/Button';
 import LoadingWidget from '../src/components/LoadingWidget';
 import QuestionWidget from '../src/components/QuestionWidget';
 import ResultWidget from '../src/components/ResultWidget';
@@ -31,18 +28,18 @@ export default function QuizPage() {
   const getNextQuestion = (isCorrectAnswer) => {
     setAnswers([
       ...answers,
-      isCorrectAnswer
+      isCorrectAnswer,
     ]);
 
     const nextQuestion = questionIndex + 1;
-    if(nextQuestion < db.questions.length){
+    if (nextQuestion < db.questions.length) {
       // próxima pergunta
       setQuestionIndex(nextQuestion);
-    }else{
+    } else {
       // todas as perguntas foram respondidas, fim do quiz
       setScreenState(screenStates.RESULT);
     }
-  }
+  };
 
   useEffect(() => {
     // fetch aqui
@@ -55,22 +52,22 @@ export default function QuizPage() {
       <QuizContainer>
         <QuizLogo />
         {
-          screenState === screenStates.QUIZ 
-          && 
-          <QuestionWidget 
+          screenState === screenStates.QUIZ
+          && (
+          <QuestionWidget
             question={question}
             questionIndex={questionIndex}
             totalQuestions={db.questions.length}
             getNextQuestion={getNextQuestion}
           />
+          )
         }
 
         {screenState === screenStates.LOADING && <LoadingWidget />}
 
         {
-          screenState === screenStates.RESULT 
-          && 
-          <ResultWidget name={name} answers={answers} />
+          screenState === screenStates.RESULT
+          && <ResultWidget name={name} answers={answers} />
         }
         <Footer />
       </QuizContainer>

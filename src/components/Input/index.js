@@ -1,3 +1,4 @@
+import React from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 
@@ -13,7 +14,9 @@ const InputBase = styled.input`
   font-size: 1em;
 `;
 
-function Input({ name, onChange, value, placeholder }){
+function Input({
+  name, onChange, value, placeholder,
+}) {
   return (
     <div>
       <InputBase
@@ -27,7 +30,7 @@ function Input({ name, onChange, value, placeholder }){
 }
 
 Input.defaultProps = {
-  value: ''
+  value: '',
 };
 
 Input.propTypes = {

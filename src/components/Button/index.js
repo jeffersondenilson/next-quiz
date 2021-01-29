@@ -17,7 +17,6 @@ const Button = styled.button`
     opacity: 0.9;
   }
   &:active {
-    // background-color: #e8175d;
     background-color: ${({ theme }) => theme.colors.secondary};
     opacity: 0.7;
     box-shadow: 2px 2px 0 1px #666;
@@ -26,8 +25,3 @@ const Button = styled.button`
 `;
 
 export default Button;
-
-/*
-box-shadow: ${({ disabled }) => (disabled ? '0 0' : '4px 4px 0 1px #ba124a')};
-box-shadow: 2px 2px 0 1px #8b0e38;
-*/

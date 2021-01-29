@@ -1,6 +1,7 @@
+import React from 'react';
 import Widget from '../Widget';
 
-export default function LoadingWidget(){
+export default function LoadingWidget() {
   return (
     <Widget>
       <Widget.Header>

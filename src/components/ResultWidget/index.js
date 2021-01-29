@@ -1,12 +1,14 @@
+import React from 'react';
 import styled from 'styled-components';
+import PropTypes from 'prop-types';
 import Widget from '../Widget';
 import FeedbackMark from '../FeedbackMark';
 
 export const TextSpan = styled.span`
   font-weight: bold;
-`
+`;
 
-export default function ResultWidget({ name, answers }){
+function ResultWidget({ name, answers }) {
   return (
     <Widget>
       <Widget.Header>
@@ -19,10 +21,17 @@ export default function ResultWidget({ name, answers }){
 
         <p>Suas respostas:</p>
 
-        { answers.map((answer, index)=>{
+        {answers.map((answer, index) => {
+          const answerIndex = `answer__${index}`;
+
           return (
-            <FeedbackMark key={`answer__${index}`} isCorrect={answer}>
-              <TextSpan>#{index + 1}</TextSpan> {answer ? '\u2714' : '\u2716'}
+            <FeedbackMark key={`answer__${answerIndex}`} isCorrect={answer}>
+              <TextSpan>
+                #
+                {index + 1}
+              </TextSpan>
+              {' '}
+              {answer ? '\u2714' : '\u2716'}
             </FeedbackMark>
           );
         })}
@@ -30,3 +39,10 @@ export default function ResultWidget({ name, answers }){
     </Widget>
   );
 }
+
+ResultWidget.propTypes = {
+  name: PropTypes.string.isRequired,
+  answers: PropTypes.arrayOf(PropTypes.bool).isRequired,
+};
+
+export default ResultWidget;
