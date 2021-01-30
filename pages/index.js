@@ -40,7 +40,7 @@ export default function Home() {
                 placeholder="Seu nome para jogar"
               />
               <Button type="submit" disabled={!hasName}>
-                JOGAR
+                JOGAR QUIZ YUGIOH!
               </Button>
             </Form>
           </Widget.Content>
