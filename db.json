@@ -67,11 +67,26 @@
     }
   ],
   "external": [
-    "https://ghibliquiz.ygoryamanaca.vercel.app",
-    "https://quiz-web.hiaguedes.vercel.app",
-    "https://anime90s-quiz.yanbaetas.vercel.app",
-    "https://quiz-games.gabrielwolf-dev.vercel.app",
-    "https://pato-quiz-nextjs.theedouglasam.vercel.app"
+    {
+      "name": "Quiz Estúdio Ghibli",
+      "url": "https://ghibliquiz.ygoryamanaca.vercel.app"
+    },
+    {
+      "name": "Quiz dos Memes ;D",
+      "url": "https://quiz-web.hiaguedes.vercel.app"
+    },
+    {
+      "name": "Quiz 90s anime",
+      "url": "https://anime90s-quiz.yanbaetas.vercel.app"
+    },
+    {
+      "name": "Quiz de Games",
+      "url": "https://quiz-games.gabrielwolf-dev.vercel.app"
+    },
+    {
+      "name": "Quiz de Pato",
+      "url": "https://pato-quiz-nextjs.theedouglasam.vercel.app"
+    }
   ],
   "theme": {
     "colors": {
