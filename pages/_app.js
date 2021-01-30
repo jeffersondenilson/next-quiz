@@ -46,10 +46,8 @@ export default function App({ Component, pageProps }) {
           images: [
             {
               url: db.bg,
-              // width: 416,
-              // height: 416,
-              width: 1200,
-              height: 720,
+              width: 416,
+              height: 416,
               alt: 'Magical Hats',
             },
           ],
