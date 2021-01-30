@@ -69,7 +69,9 @@
   "external": [
     "https://ghibliquiz.ygoryamanaca.vercel.app",
     "https://quiz-web.hiaguedes.vercel.app",
-    "https://anime90s-quiz.yanbaetas.vercel.app"
+    "https://anime90s-quiz.yanbaetas.vercel.app",
+    "https://quiz-games.gabrielwolf-dev.vercel.app",
+    "https://pato-quiz-nextjs.theedouglasam.vercel.app"
   ],
   "theme": {
     "colors": {
