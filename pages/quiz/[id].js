@@ -1,6 +1,6 @@
 import React from 'react';
 import { ThemeProvider } from 'styled-components';
-import QuizScreen from '@/components/src/screens/Quiz';
+import QuizScreen from '@/src/components/screens/Quiz';
 
 export default function DynamicQuizPage({ db }) {
   return (
@@ -14,7 +14,6 @@ export default function DynamicQuizPage({ db }) {
 }
 
 export async function getServerSideProps(ctx) {
-  console.log(ctx.query);
   const [projectName, githubUser] = ctx.query.id.split('__');
 
   try {
@@ -26,7 +25,7 @@ export async function getServerSideProps(ctx) {
 
         throw new Error('Falha em pegar os dados');
       })
-      .then((obj) => obj)
+      .then((obj) => obj);
 
       return {
         props: { db }

@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
-import QuizBackground from '@/components/QuizBackground';
-import QuizContainer from '@/components/QuizContainer';
-import QuizLogo from '@/components/QuizLogo';
-import Footer from '@/components/Footer';
-import GitHubCorner from '@/components/GitHubCorner';
-import LoadingWidget from '@/components/LoadingWidget';
-import QuestionWidget from '@/components/QuestionWidget';
-import ResultWidget from '@/components/ResultWidget';
+import QuizBackground from '@/src/components/QuizBackground';
+import QuizContainer from '@/src/components/QuizContainer';
+import QuizLogo from '@/src/components/QuizLogo';
+import Footer from '@/src/components/Footer';
+import GitHubCorner from '@/src/components/GitHubCorner';
+import LoadingWidget from '@/src/components/LoadingWidget';
+import QuestionWidget from '@/src/components/QuestionWidget';
+import ResultWidget from '@/src/components/ResultWidget';
 
 const screenStates = {
   QUIZ: 'QUIZ',

@@ -109,7 +109,7 @@ QuestionWidget.propTypes = {
   question: PropTypes.shape({
     image: PropTypes.string.isRequired,
     title: PropTypes.string.isRequired,
-    description: PropTypes.string.isRequired,
+    description: PropTypes.string,
     answer: PropTypes.number.isRequired,
     alternatives: PropTypes.arrayOf(PropTypes.string).isRequired,
   }).isRequired,
