@@ -62,7 +62,10 @@ export default function Home() {
 
                 return (
                   <li key={url}>
-                    <Widget.Topic as={Link} href={hasName ? `/quiz/${projectName}__${githubUser}` : '/'}>
+                    <Widget.Topic 
+                      as={Link}
+                      href={hasName ? `/quiz/${projectName}__${githubUser}?name=${name}` : '/'}
+                    >
                       {`${githubUser}/${projectName}`}
                     </Widget.Topic>
                   </li>

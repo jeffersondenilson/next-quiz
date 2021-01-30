@@ -1,14 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
-import db from '../db.json';
-import QuizBackground from '../src/components/QuizBackground';
-import QuizContainer from '../src/components/QuizContainer';
-import QuizLogo from '../src/components/QuizLogo';
-import Footer from '../src/components/Footer';
-import GitHubCorner from '../src/components/GitHubCorner';
-import LoadingWidget from '../src/components/LoadingWidget';
-import QuestionWidget from '../src/components/QuestionWidget';
-import ResultWidget from '../src/components/ResultWidget';
+import QuizBackground from '@/components/QuizBackground';
+import QuizContainer from '@/components/QuizContainer';
+import QuizLogo from '@/components/QuizLogo';
+import Footer from '@/components/Footer';
+import GitHubCorner from '@/components/GitHubCorner';
+import LoadingWidget from '@/components/LoadingWidget';
+import QuestionWidget from '@/components/QuestionWidget';
+import ResultWidget from '@/components/ResultWidget';
 
 const screenStates = {
   QUIZ: 'QUIZ',
@@ -16,14 +15,14 @@ const screenStates = {
   RESULT: 'RESULT',
 };
 
-export default function QuizPage() {
+export default function QuizScreen({ questions, bg }) {
   const router = useRouter();
   const { name } = router.query;
 
   const [screenState, setScreenState] = useState(screenStates.LOADING);
   const [questionIndex, setQuestionIndex] = useState(0);
   const [answers, setAnswers] = useState([]);
-  const question = db.questions[questionIndex];
+  const question = questions[questionIndex];
 
   const getNextQuestion = (isCorrectAnswer) => {
     setAnswers([
@@ -32,7 +31,7 @@ export default function QuizPage() {
     ]);
 
     const nextQuestion = questionIndex + 1;
-    if (nextQuestion < db.questions.length) {
+    if (nextQuestion < questions.length) {
       // próxima pergunta
       setQuestionIndex(nextQuestion);
     } else {
@@ -42,13 +41,12 @@ export default function QuizPage() {
   };
 
   useEffect(() => {
-    // fetch aqui
     setScreenState(screenStates.QUIZ);
     // setScreenState(screenStates.RESULT);
   }, []);
 
   return (
-    <QuizBackground backgroundImage={db.bg}>
+    <QuizBackground backgroundImage={bg}>
       <QuizContainer>
         <QuizLogo />
         {
@@ -57,7 +55,7 @@ export default function QuizPage() {
           <QuestionWidget
             question={question}
             questionIndex={questionIndex}
-            totalQuestions={db.questions.length}
+            totalQuestions={questions.length}
             getNextQuestion={getNextQuestion}
           />
           )
