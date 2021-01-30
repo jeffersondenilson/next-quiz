@@ -67,7 +67,9 @@
     }
   ],
   "external": [
-    ""
+    "https://ghibliquiz.ygoryamanaca.vercel.app",
+    "https://quiz-web.hiaguedes.vercel.app",
+    "https://anime90s-quiz.yanbaetas.vercel.app"
   ],
   "theme": {
     "colors": {

@@ -10,10 +10,12 @@ import GitHubCorner from '../src/components/GitHubCorner';
 import Form from '../src/components/Form';
 import Input from '../src/components/Input';
 import Button from '../src/components/Button';
+import Link from '../src/components/Link';
 
 export default function Home() {
   const router = useRouter();
   const [name, setName] = useState('');
+  const hasName = name.trim().length > 0;
 
   const submit = (e) => {
     e.preventDefault();
@@ -37,7 +39,7 @@ export default function Home() {
                 value={name}
                 placeholder="Seu nome para jogar"
               />
-              <Button type="submit" disabled={name.trim().length === 0}>
+              <Button type="submit" disabled={!hasName}>
                 JOGAR
               </Button>
             </Form>
@@ -48,7 +50,25 @@ export default function Home() {
           <Widget.Content>
             <h1>Quizes da Galera</h1>
 
-            <p>Em breve...</p>
+            <p>Veja outros quizes{!hasName && ', digite seu nome para jogar'}</p>
+
+            <ul>
+              {db.external.map((url) => {
+                const [projectName, githubUser] = url
+                .replace(/\//g, '')
+                .replace('https:', '')
+                .replace('.vercel.app', '')
+                .split('.');
+
+                return (
+                  <li key={url}>
+                    <Widget.Topic as={Link} href={hasName ? `/quiz/${projectName}__${githubUser}` : '/'}>
+                      {`${githubUser}/${projectName}`}
+                    </Widget.Topic>
+                  </li>
+                );
+              })}
+            </ul>
           </Widget.Content>
         </Widget>
         <Footer />
