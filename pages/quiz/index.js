@@ -1,3 +1,4 @@
+/* eslint-disable import/no-unresolved */
 import React from 'react';
 import { ThemeProvider } from 'styled-components';
 import QuizScreen from '@/src/components/screens/Quiz';

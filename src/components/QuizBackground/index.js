@@ -4,10 +4,6 @@ import styled from 'styled-components';
 const QuizBackground = styled.div`
   width: 100%;
   background-size: cover;
-  //
-  // background-size: contain;
-  // background-repeat: no-repeat;
-  //
   background-position: center;
   background-image: url(${({ backgroundImage }) => backgroundImage});
   background-color: ${({ theme }) => theme.colors.mainBg};
@@ -24,7 +20,6 @@ const QuizBackground = styled.div`
       display: block;
       width: 100%;
       height: 210px;
-      // height: 100%;
       position: absolute;
       top: 0;
       left: 0;

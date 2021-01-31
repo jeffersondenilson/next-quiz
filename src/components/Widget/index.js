@@ -61,13 +61,7 @@ Widget.Topic = styled.a`
   &:not([data-checked="true"]):hover,
   &:not([data-checked="true"]):focus {
     opacity: .5;
-    // opacity: ${({ checked }) => !checked && '.5'};
   }
 `;
 
 export default Widget;
-
-/*
-background-color: ${({ theme, checked }) => 
-  (checked ? `${theme.colors.primary}` : `${theme.colors.primary}40`)};
-*/

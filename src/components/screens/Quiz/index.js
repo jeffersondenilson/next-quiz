@@ -1,3 +1,5 @@
+/* eslint-disable react/prop-types */
+/* eslint-disable import/no-unresolved */
 import React, { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
 import QuizBackground from '@/src/components/QuizBackground';
