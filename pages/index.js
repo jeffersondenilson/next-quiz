@@ -76,6 +76,14 @@ export default function Home() {
                 );
               })}
             </ul>
+
+            <Link
+              href="https://aluraquiz-base.alura-challenges.vercel.app/contribuidores"
+              target="_blank"
+              style={{ color: 'white', fontSize: '1.1em' }}
+            >
+              Ver todos &#8599;
+            </Link>
           </Widget.Content>
         </Widget>
         <Footer />
