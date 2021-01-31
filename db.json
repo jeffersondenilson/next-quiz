@@ -75,6 +75,10 @@
       "url": "https://quiz-web.hiaguedes.vercel.app"
     },
     {
+      "name": "Pokémon",
+      "url": "https://pokemon-alura-quiz-2021.kaugoncalves.vercel.app"
+    },
+    {
       "name": "Quiz 90s anime",
       "url": "https://anime90s-quiz.yanbaetas.vercel.app"
     },
@@ -85,6 +89,30 @@
     {
       "name": "Quiz de Pato",
       "url": "https://pato-quiz-nextjs.theedouglasam.vercel.app"
+    },
+    {
+      "name": "Quiz do capixabês",
+      "url": "https://quiz-nextjs.psatler.vercel.app"
+    },
+    {
+      "name": "Anime Quiz",
+      "url": "https://animequiz.ffsf-filho.vercel.app"
+    },
+    {
+      "name": "Quiz Do Chaves",
+      "url": "https://my-alura-quiz.andrealvesaraujo.vercel.app"
+    },
+    {
+      "name": "Quiz Design Patterns",
+      "url": "https://quiz-padrao-projetos.thassya.vercel.app"
+    },
+    {
+      "name": "Alura Quiz - Pokémon!",
+      "url": "https://aluraquizpokemon.cesarrobertopg.vercel.app"
+    },
+    {
+      "name": "Demon Slayer Quiz",
+      "url": "https://demon-slayer-quiz.hugos94.vercel.app"
     }
   ],
   "theme": {
