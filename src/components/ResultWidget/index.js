@@ -1,15 +1,30 @@
 import React from 'react';
+import { useRouter } from 'next/router';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import Widget from '../Widget';
 import FeedbackMark from '../FeedbackMark';
 import BackLinkArrow from '../BackLinkArrow';
+import Link from '../Link';
 
 export const TextSpan = styled.span`
   font-weight: bold;
 `;
 
+export const StyledLink = styled(Link)`
+  color: white;
+`;
+
 function ResultWidget({ name, answers }) {
+  const router = useRouter();
+  const { id } = router.query;
+  let projectName, githubUser;
+  // link para quiz original
+  if(id){
+    [projectName, githubUser] = id.split('__');
+    githubUser = githubUser === 'undefined' ? '' : `.${githubUser}`;
+  }
+
   return (
     <Widget>
       <Widget.Header>
@@ -20,6 +35,17 @@ function ResultWidget({ name, answers }) {
         <h3>
           {`${name}, você acertou ${answers.filter((a) => a).length} de ${answers.length}`}
         </h3>
+
+        {
+          id && 
+          <StyledLink 
+            href={`https://${projectName}${githubUser}.vercel.app/`}
+            target="_blank"
+          >
+            Veja o quiz original &#8599;
+          </StyledLink>
+        }
+        
 
         <p>Suas respostas:</p>
 
@@ -37,6 +63,10 @@ function ResultWidget({ name, answers }) {
             </FeedbackMark>
           );
         })}
+
+        <StyledLink href="/">
+          Voltar para o início
+        </StyledLink>
       </Widget.Content>
     </Widget>
   );
