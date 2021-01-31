@@ -16,10 +16,12 @@ export default function DynamicQuizPage({ db }) {
 }
 
 export async function getServerSideProps(ctx) {
-  const [projectName, githubUser] = ctx.query.id.split('__');
+  let [projectName, githubUser] = ctx.query.id.split('__');
+  // para link sem nome de usuario
+  githubUser = githubUser === 'undefined' ? '' : `.${githubUser}`;
 
   try {
-    const db = await fetch(`https://${projectName}.${githubUser}.vercel.app/api/db`)
+    const db = await fetch(`https://${projectName}${githubUser}.vercel.app/api/db`)
       .then((res) => {
         if (res.ok) {
           return res.json();
