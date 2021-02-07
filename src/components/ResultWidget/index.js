@@ -12,7 +12,7 @@ export const TextSpan = styled.span`
 `;
 
 export const StyledLink = styled(Link)`
-  color: white;
+  color: ${({ theme }) => theme.colors.contrastText};
 `;
 
 function ResultWidget({ name, answers }) {

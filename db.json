@@ -113,6 +113,14 @@
     {
       "name": "Demon Slayer Quiz",
       "url": "https://demon-slayer-quiz.hugos94.vercel.app"
+    },
+    {
+      "name": "Quiz - Os Cavaleiros do Zodíaco",
+      "url": "https://quiz-cavaleiro-zodiaco.vercel.app"
+    },
+    {
+      "name": "Tokyo Rush!",
+      "url": "https://imersao-next-alura-01-2021.vercel.app"
     }
   ],
   "theme": {

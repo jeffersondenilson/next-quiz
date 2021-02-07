@@ -75,6 +75,37 @@ export default function Home() {
                   </li>
                 );
               })}
+              {/* não tem api ou é melhor redirecionar para o original */}
+              <li>
+                <Widget.Topic
+                  as={Link}
+                  style={{ marginRight: '5px' }}
+                  href="https://aluraquiz-simpsons.vercel.app"
+                  target="_blank"
+                >
+                  Alura Quiz - Os Simpsons &#8599;
+                </Widget.Topic>
+              </li>
+              <li>
+                <Widget.Topic
+                  as={Link}
+                  style={{ marginRight: '5px' }}
+                  href="https://quiz-pokemon.vercel.app"
+                  target="_blank"
+                >
+                  Pokémon Quiz &#8599;
+                </Widget.Topic>
+              </li>
+              <li>
+                <Widget.Topic
+                  as={Link}
+                  style={{ marginRight: '5px' }}
+                  href="https://1sec-quiz.victoroda.vercel.app"
+                  target="_blank"
+                >
+                  Quiz do 1 segundo GAMES &#8599;
+                </Widget.Topic>
+              </li>
             </ul>
 
             <Link
