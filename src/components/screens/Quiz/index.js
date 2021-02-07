@@ -44,7 +44,6 @@ export default function QuizScreen({ questions, bg }) {
 
   useEffect(() => {
     setScreenState(screenStates.QUIZ);
-    // setScreenState(screenStates.RESULT);
   }, []);
 
   return (

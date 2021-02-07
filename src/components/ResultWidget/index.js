@@ -18,9 +18,10 @@ export const StyledLink = styled(Link)`
 function ResultWidget({ name, answers }) {
   const router = useRouter();
   const { id } = router.query;
-  let projectName, githubUser;
+  let projectName;
+  let githubUser;
   // link para quiz original
-  if(id){
+  if (id) {
     [projectName, githubUser] = id.split('__');
     githubUser = githubUser === 'undefined' ? '' : `.${githubUser}`;
   }
@@ -37,15 +38,16 @@ function ResultWidget({ name, answers }) {
         </h3>
 
         {
-          id && 
-          <StyledLink 
+          id
+          && (
+          <StyledLink
             href={`https://${projectName}${githubUser}.vercel.app/`}
             target="_blank"
           >
             Veja o quiz original &#8599;
           </StyledLink>
+          )
         }
-        
 
         <p>Suas respostas:</p>
 

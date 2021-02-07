@@ -16,6 +16,7 @@ export default function DynamicQuizPage({ db }) {
 }
 
 export async function getServerSideProps(ctx) {
+  // eslint-disable-next-line prefer-const
   let [projectName, githubUser] = ctx.query.id.split('__');
   // para link sem nome de usuario
   githubUser = githubUser === 'undefined' ? '' : `.${githubUser}`;
